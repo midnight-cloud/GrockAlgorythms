@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.grockalgorithms.R
 import com.example.grockalgorithms.adapters.ItemAdapter
@@ -42,10 +42,19 @@ class MainFragment : Fragment() {
     private fun initRecyclerView() {
         itemAdapter.submitList(algList)
         itemAdapter.onItemClickListener = {
-            Toast.makeText(requireContext(), "Clicked: ${it.title}", Toast.LENGTH_SHORT).show()
+            val id = R.array.binary_search
+            nextFragment(id)
         }
         binding.rvAlgs.layoutManager = LinearLayoutManager(requireContext())
         binding.rvAlgs.adapter = itemAdapter
+    }
+
+    private fun nextFragment(id: Int) {
+        parentFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace(R.id.fragment_place_main, DetailFragment.newInstance(id))
+            addToBackStack("main")
+        }
     }
 
     override fun onDestroyView() {

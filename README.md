@@ -1,11 +1,9 @@
 # GrockAlgorythms
 Android app
 
-**Last version 0.0.1**
+**Last version 0.1.0**
 ```
-Первая инициализация:
-- listadapter
-- main fragment
+Реализована страница алгоритма бинарного поиска
 ```
 
 ___
@@ -18,6 +16,11 @@ ___
 ___
 
 **Previous:**
+
+```
+version 0.1.0 - binary search
+Реализована страница алгоритма бинарного поиска
+```
 
 ```
 version 0.0.1 - start project

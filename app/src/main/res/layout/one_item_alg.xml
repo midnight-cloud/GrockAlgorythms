@@ -47,6 +47,8 @@
             android:layout_height="wrap_content"
             android:text="@string/example"
             android:layout_marginTop="8dp"
+            android:maxLines="3"
+            android:ellipsize="end"
             app:layout_constraintTop_toBottomOf="@id/tv_alg_title"
             app:layout_constraintStart_toStartOf="@id/tv_alg_title"
             app:layout_constraintEnd_toEndOf="parent"/>

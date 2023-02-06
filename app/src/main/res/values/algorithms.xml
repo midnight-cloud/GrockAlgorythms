@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- binary search -->
+    <string-array name="binary_search">
+        <item>1</item>
+        <item>empty</item>
+        <item>Бинарный поиск</item>
+        <item>log(n)</item>
+        <item>
+            Алгоритм бинарного поиска элемента в отсортированном списке
+        </item>
+    </string-array>
+
+</resources>

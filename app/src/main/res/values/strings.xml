@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GrockAlgorithms</string>
+
+    <!-- MainFragment -->
+    <string name="hello_blank_fragment">
+        Это приложение по реализации алгоритмов\n
+        Создается по книге \"Грокаем алгоритмы - Адитья Бхаргава\"
+    </string>
+
+    <!-- Other -->
+    <string name="icon_of_algorythm">Icon of algorithm</string>
+    <string name="example">Example</string>
+</resources>

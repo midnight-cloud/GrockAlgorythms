@@ -101,4 +101,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="calculate">Вычисление</string>
+    <string name="enter_data">Введите размер списка</string>
+    <string name="enter_find">Введите искомое число</string>
+    <string name="generate">Сгенерировать</string>
 </resources>

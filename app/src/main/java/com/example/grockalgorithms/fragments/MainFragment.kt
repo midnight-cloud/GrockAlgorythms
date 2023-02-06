@@ -17,7 +17,6 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
-    private val algList = mutableListOf<Algorithm>()
     private val itemAdapter = ItemAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,15 +34,13 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fillAlgList()
         initRecyclerView()
     }
 
     private fun initRecyclerView() {
-        itemAdapter.submitList(algList)
+        itemAdapter.submitList(Algorithm.list)
         itemAdapter.onItemClickListener = {
-            val id = R.array.binary_search
-            nextFragment(id)
+            nextFragment(it.id)
         }
         binding.rvAlgs.layoutManager = LinearLayoutManager(requireContext())
         binding.rvAlgs.adapter = itemAdapter
@@ -60,15 +57,6 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun fillAlgList() {
-        val binaryAlg = resources.getStringArray(R.array.binary_search)
-        algList.add(
-            Algorithm(
-                binaryAlg[0].toInt(), R.drawable.icon_alg, binaryAlg[2], binaryAlg[3], binaryAlg[4]
-            )
-        )
     }
 
     companion object {

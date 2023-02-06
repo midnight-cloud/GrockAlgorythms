@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import com.example.grockalgorithms.R
 import com.example.grockalgorithms.databinding.FragmentDetailBinding
+import com.example.grockalgorithms.models.Algorithm
 
 private const val ARG_PARAM1 = "param1"
 
@@ -34,13 +37,29 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initFragment(algType!!)
+
+        binding.fbtnCalculate.setOnClickListener {
+            startCalcFragment(algType!!)
+        }
+    }
+
+    private fun startCalcFragment(id: Int) {
+        parentFragmentManager.commit {
+            when(id) {
+                0 -> replace(R.id.fragment_place_main, BinarySearchFragment.newInstance())
+            }
+            setReorderingAllowed(true)
+            addToBackStack("detail")
+        }
+
+
     }
 
     private fun initFragment(id: Int) {
-        val alg = resources.getStringArray(id)
-        binding.tvAlgTitle.text = alg[2]
-        binding.tvAlgDifficult.text = "Сложность: ${alg[3]}"
-        binding.tvAlgDescription.text = alg[4]
+        val alg = Algorithm.list[id]
+        binding.tvAlgTitle.text = alg.title
+        binding.tvAlgDifficult.text = "Сложность: ${alg.difficult}"
+        binding.tvAlgDescription.text = alg.description
     }
 
     override fun onDestroyView() {
